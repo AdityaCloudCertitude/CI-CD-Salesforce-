@@ -133,7 +133,6 @@ export default class FileUpload extends LightningElement {
         //                 selectedFields.splice(indx,1);
         //             }
         //         item.selectedField = field;
-        //     }
 
         // });
         // console.log('selectedFields : ',selectedFields);
@@ -152,7 +151,6 @@ export default class FileUpload extends LightningElement {
         //             }
         //         })
         //     }
-
         // })
         // console.log('fieldsMapping  ', this.fieldsMapping);
 
