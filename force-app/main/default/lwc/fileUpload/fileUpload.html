@@ -1,0 +1,44 @@
+<template>
+	<lightning-card variant="Narrow" title="Upload Files" icon-name="standard:account">
+
+		<lightning-layout multiple-rows>
+			<lightning-layout-item size="6" padding="around-small">
+				<lightning-input type="file" label="Upload File" accept=".csv" onchange={handleFileUpload} multiple>
+				</lightning-input>
+			</lightning-layout-item>
+
+			<lightning-layout-item size="6" padding="around-small">
+				<lightning-combobox label="Select an Object" value={selectedObject} options={objectOptions}
+					onchange={handleChange}>
+				</lightning-combobox>
+			</lightning-layout-item>
+		</lightning-layout>
+
+		<table class="slds-table slds-table_cell-buffer slds-table_bordered" if:true={fieldsMapping}>
+			<thead>
+				<tr class="slds-line-height_reset">
+					<th scope="col"> Headers </th>
+					<th scope="col"> Fields </th>
+				</tr>
+			</thead>
+			<tbody>
+				<template for:each={fieldsMapping} for:item="obj" for:index="index">
+					<tr class="slds-hint-parent" key={obj.header}>
+						<th scope="row"> {obj.header} </th>
+						<th scope="row">
+							<lightning-combobox name="progress" value={obj.selectedField} placeholder="Select Field"
+								options={obj.options} data-header={obj.header} onchange={handleFieldChange} data-index={index}>
+							</lightning-combobox>
+						</th>
+					</tr>
+				</template>
+
+			</tbody>
+		</table>
+		<div lwc:if={showSpinner} class="spinner">
+			<lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+		</div>
+		<lightning-button label="Create Records" onclick={handleButtonClick} variant="brand">
+		</lightning-button>
+	</lightning-card>
+</template>

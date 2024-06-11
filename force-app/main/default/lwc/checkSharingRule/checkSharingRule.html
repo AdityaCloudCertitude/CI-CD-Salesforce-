@@ -1,0 +1,29 @@
+<template>
+    <lightning-button label="Load Contacts" onclick={loadContacts}></lightning-button>
+    <template if:true={contactList}>
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Contact Name">Sharing Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Sharing Rule">Sharing Rule</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={contactList} for:item="contact">
+                    <tr key={contact.Id}>
+                        <td data-label="Sharing Name">
+                            <div class="slds-truncate" title={contact.Name}>{contact.Name}</div>
+                        </td>
+                        <td data-label="Sharing Rule">
+                            <div class="slds-truncate" title={contact.Sharing_rule__c}>{contact.Sharing_rule__c}</div>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+</template>

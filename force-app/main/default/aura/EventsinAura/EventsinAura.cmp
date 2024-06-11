@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="inputValue" type="String" default="Default Value"/>
+    <aura:attribute name="renderCount" type="Integer" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <aura:handler name="change" value="{!v.inputValue}" action="{!c.handleInputChange}" />
+    
+     
+    <lightning:input type="text" name="inputField" onchange="{!c.render}" value="{!v.inputValue}" />
+    <h1 aura:id="header">{!v.inputValue}</h1>
+    
+    <p>Render Count: {!v.renderCount}</p>
+    
+</aura:component>

@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title='Related Contacts'>
+        <div class="slds-p-around_medium">
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr class="slds-text-heading_label">
+                        <th scope="col">Sr No.</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={records} for:item="contact" for:index="index">
+                        <tr key={contact.fields.Id.value}>
+                            <td>{contact.Index}</td>
+                            <td>{contact.fields.Name.value}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        <div class="slds-align_absolute-center slds-p-around_medium">
+            <lightning-button-group>
+                <lightning-button
+                    label="Previous"
+                    onclick={handlePrevious}
+                    disabled={isPreviousDisabled}>
+                </lightning-button>
+                <lightning-button
+                    label="Next"
+                    onclick={handleNext}
+                    disabled={isNextDisabled}>
+                </lightning-button>
+            </lightning-button-group>
+        </div>
+    </lightning-card>
+</template>
