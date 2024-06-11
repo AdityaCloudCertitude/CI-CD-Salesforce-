@@ -133,10 +133,6 @@ export default class FileUpload extends LightningElement {
         //                 selectedFields.splice(indx,1);
         //             }
         //         item.selectedField = field;
-        // item.selectedField = field;
-        //     }
-        //     if (item.selectedField) {
-        //         selectedFields.push(item.selectedField);
         //     }
 
         // });
