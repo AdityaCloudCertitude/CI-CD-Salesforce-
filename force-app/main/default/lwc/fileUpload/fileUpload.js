@@ -153,7 +153,6 @@ export default class FileUpload extends LightningElement {
         //     }
         // })
         // console.log('fieldsMapping  ', this.fieldsMapping);
-
     }
 
 
